@@ -50,13 +50,12 @@ fun MainScreen() {
                 })
 
 
-            var myTextString="Hello!"
-            Text(text = myTextString,
+            var myTextString=remember{ mutableStateOf("Hello!")}
+            Text(text = myTextString.value,
             fontSize = 25.sp)
             Spacer(modifier = Modifier.padding(7.dp))
             Button(onClick = {
-                myTextString="Android"
-                println(myTextString)
+                myTextString.value="Android"
             }) {
                 Text(text = "Button")
                 Text(text = "Test")
