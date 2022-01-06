@@ -5,11 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,6 +17,7 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -41,11 +41,22 @@ fun MainScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
-            Text(text = "Hello!",
+
+            var myString=remember{mutableStateOf("Android Compose")}
+            TextField(value = myString.value,
+                onValueChange = {
+                    myString.value=it
+                    println(myString.value)
+                })
+
+
+            var myTextString="Hello!"
+            Text(text = myTextString,
             fontSize = 25.sp)
             Spacer(modifier = Modifier.padding(7.dp))
             Button(onClick = {
-                println("clicked")
+                myTextString="Android"
+                println(myTextString)
             }) {
                 Text(text = "Button")
                 Text(text = "Test")
