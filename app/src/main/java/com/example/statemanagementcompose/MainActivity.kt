@@ -33,6 +33,7 @@ fun MainScreen(){
     var myString = remember { mutableStateOf("")}
 
     Surface(
+        //fillMaxSize -> Yüzeyi kapla
         modifier = Modifier.fillMaxSize()
     ) {
         Column(
